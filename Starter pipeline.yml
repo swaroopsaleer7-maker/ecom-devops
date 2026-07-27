@@ -1,0 +1,21 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo "Pipeline started"
+  displayName: Start
+
+- script: node -v
+  displayName: Check Node
+
+- script: npm install
+  displayName: Install dependencies
+
+- script: docker --version
+  displayName: Check Docker
+
+- script: docker build -t ecom-app .
+  displayName: Build Docker Image
