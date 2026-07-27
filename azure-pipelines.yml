@@ -16,9 +16,12 @@ steps:
 - script: npm install
   displayName: Install dependencies
 
-- script: docker --version
-  displayName: Check Docker
-
-- script: docker build -t ecom-app .
-  displayName: Build Docker Image
-  
+- task: Docker@2
+  displayName: Build and Push Docker Image
+  inputs:
+    containerRegistry: 'dockerhub-connection'
+    repository: 'swaroopsaleer7/ecom-devops'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      latest
