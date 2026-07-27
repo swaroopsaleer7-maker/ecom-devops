@@ -20,7 +20,7 @@ steps:
   displayName: Build and Push Docker Image
   inputs:
     containerRegistry: 'dockerhub-connection'
-    repository: 'swaroopsaleer7/ecom-devops'
+    repository:'swaroopgrf/ecom-devops'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: |
