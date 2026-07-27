@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+
+- script: |
+    echo Installing dependencies...
+    npm install
+
+    echo Running application...
+    node server.js &
+    sleep 5
+  displayName: 'Run Node App'
