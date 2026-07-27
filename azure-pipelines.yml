@@ -5,19 +5,15 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-# Install Node
+- script: echo "Pipeline started"
+  displayName: Start
+
 - task: NodeTool@1
   inputs:
     versionSpec: '18.x'
 
-# Install dependencies
 - script: npm install
   displayName: Install dependencies
 
-# Build Docker image
-- task: Docker@2
+- script: docker build -t ecom-app .
   displayName: Build Docker Image
-  inputs:
-    command: build
-    Dockerfile: 'Dockerfile'
-    tags: latest
