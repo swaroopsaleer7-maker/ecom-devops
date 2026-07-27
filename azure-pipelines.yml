@@ -5,7 +5,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: NodeTool@0
+# Install Node
+- task: NodeTool@1
   inputs:
     versionSpec: '18.x'
 
@@ -18,5 +19,5 @@ steps:
   displayName: Build Docker Image
   inputs:
     command: build
-    Dockerfile: '**/Dockerfile'
+    Dockerfile: 'Dockerfile'
     tags: latest
