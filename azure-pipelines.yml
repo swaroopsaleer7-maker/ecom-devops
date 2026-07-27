@@ -1,10 +1,10 @@
-trigger:
-- main
 
-pool:
-  vmImage: ubuntu-latest
+  trigger:
+  -main
+  pool:
+   vmImage:ubuntu-latest
 
-steps:
+ steps:
 - script: echo "Pipeline started"
   displayName: Start
 
